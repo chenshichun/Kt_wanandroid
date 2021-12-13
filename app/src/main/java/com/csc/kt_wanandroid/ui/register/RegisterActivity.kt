@@ -4,7 +4,6 @@ import android.view.View
 import com.csc.core.mvp.BaseMvpActivity
 import com.csc.core.util.ToastUtil
 import com.csc.kt_wanandroid.R
-import com.socks.library.KLog
 import kotlinx.android.synthetic.main.activity_register.*
 
 /**

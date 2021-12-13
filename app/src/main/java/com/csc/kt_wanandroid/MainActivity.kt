@@ -69,12 +69,12 @@ class MainActivity : BaseActivity() {
 
         mBottomNavigationBar?.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
-                when (position) {
-                    0 -> currentPosition = 0
-                    1 -> currentPosition = 1
-                    2 -> currentPosition = 2
-                    3 -> currentPosition = 3
-                    else -> currentPosition = 3
+                currentPosition = when (position) {
+                    0 -> 0
+                    1 -> 1
+                    2 -> 2
+                    3 -> 3
+                    else -> 3
                 }
             }
 

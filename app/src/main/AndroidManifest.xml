@@ -18,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".WebViewActivity" />
+        <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name="com.csc.kt_wanandroid.ui.system.systemlist.SystemListActivity" />
+        <activity android:name=".ui.system.systemlist.SystemListActivity" />
     </application>
 
 </manifest>

@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.layout_title.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class WebViewActivity : BaseActivity(), View.OnClickListener {
-    var url: String = ""
-    var title: String = ""
-    var mAgentWeb: AgentWeb? = null
+    private var url: String = ""
+    private var title: String = ""
+    private var mAgentWeb: AgentWeb? = null
 
     override fun getLayoutId(): Int {
         return R.layout.activity_webview

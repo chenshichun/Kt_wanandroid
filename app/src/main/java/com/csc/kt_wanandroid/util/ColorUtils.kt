@@ -1,17 +1,15 @@
-package com.csc.kt_wanandroid.util;
+package com.csc.kt_wanandroid.util
 
-import android.graphics.Color;
-import android.text.TextUtils;
-
-import androidx.core.content.ContextCompat;
-
-import com.csc.core.base.BaseApplication;
-import com.csc.kt_wanandroid.MyApplication;
+import android.graphics.Color
+import android.text.TextUtils
+import androidx.core.content.ContextCompat
+import com.csc.core.base.BaseApplication
+import com.csc.kt_wanandroid.MyApplication
 
 /**
  * des 颜色处理工具类
  */
-public class ColorUtils {
+object ColorUtils {
     /**
      * 解析颜色
      *
@@ -19,32 +17,31 @@ public class ColorUtils {
      * @param defaultColor
      * @return
      */
-    public static int parseColor(String colorStr, int defaultColor) {
-        if (TextUtils.isEmpty(colorStr)) {
-            return defaultColor;
-        }
-        try {
+    fun parseColor(colorStr: String, defaultColor: Int): Int {
+        var colorStr = colorStr
+        return if (TextUtils.isEmpty(colorStr)) {
+            defaultColor
+        } else try {
             if (!colorStr.startsWith("#")) {
-                colorStr = "#" + colorStr;
+                colorStr = "#$colorStr"
             }
-            int color = Color.parseColor(colorStr);
-            return color;
-        } catch (Exception e) {
-            return defaultColor;
+            Color.parseColor(colorStr)
+        } catch (e: Exception) {
+            defaultColor
         }
     }
 
-    public static int parseColor(String colorStr) {
-        if (TextUtils.isEmpty(colorStr)) {
-            return 0;
-        }
-        try {
+    fun parseColor(colorStr: String): Int {
+        var colorStr = colorStr
+        return if (TextUtils.isEmpty(colorStr)) {
+            0
+        } else try {
             if (!colorStr.startsWith("#")) {
-                colorStr = "#" + colorStr;
+                colorStr = "#$colorStr"
             }
-            return Color.parseColor(colorStr);
-        } catch (Exception e) {
-            return 0;
+            Color.parseColor(colorStr)
+        } catch (e: Exception) {
+            0
         }
     }
 
@@ -54,8 +51,8 @@ public class ColorUtils {
      * @param color
      * @return
      */
-    public static int parseColor(int color) {
-        return ContextCompat.getColor(MyApplication.mContext, color);
+    fun parseColor(color: Int): Int {
+        return ContextCompat.getColor(BaseApplication.mContext, color)
     }
 
     /**
@@ -65,8 +62,7 @@ public class ColorUtils {
      * @param color
      * @return
      */
-    public static String setTextColor(String text, String color) {
-        return "<font color=#" + color + ">" + text + "</font>";
+    fun setTextColor(text: String, color: String): String {
+        return "<font color=#$color>$text</font>"
     }
-
 }

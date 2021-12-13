@@ -1,51 +1,41 @@
-package com.csc.kt_wanandroid.widget;
+package com.csc.kt_wanandroid.widget
 
-import android.content.Context;
+import android.content.Context
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
-
-
-public class ZsSimplePagerTitleView extends ColorTransitionPagerTitleView {
-
-    private SelectListener selectListener;
-    public ZsSimplePagerTitleView(Context context) {
-        super(context);
-    }
-
-    @Override
-    public void onSelected(int index, int totalCount) {
-        super.onSelected(index, totalCount);
-        if (selectListener!=null){
-            selectListener.onSelect(index,totalCount);
+class ZsSimplePagerTitleView(context: Context?) : ColorTransitionPagerTitleView(context) {
+    private var selectListener: SelectListener? = null
+    override fun onSelected(index: Int, totalCount: Int) {
+        super.onSelected(index, totalCount)
+        if (selectListener != null) {
+            selectListener!!.onSelect(index, totalCount)
         }
     }
 
-    @Override
-    public void onDeselected(int index, int totalCount) {
-        super.onDeselected(index, totalCount);
-        if (selectListener!=null){
-            selectListener.onDeselected(index,totalCount);
+    override fun onDeselected(index: Int, totalCount: Int) {
+        super.onDeselected(index, totalCount)
+        if (selectListener != null) {
+            selectListener!!.onDeselected(index, totalCount)
         }
     }
 
-
-    public void setSelectListener(SelectListener selectListener){
-        this.selectListener = selectListener;
+    fun setSelectListener(selectListener: SelectListener?) {
+        this.selectListener = selectListener
     }
 
-    public interface SelectListener{
+    interface SelectListener {
         /**
          * 选中
          * @param index
          * @param totalCount
          */
-        void onSelect(int index, int totalCount);
+        fun onSelect(index: Int, totalCount: Int)
 
         /**
          * 未选中
          * @param index
          * @param totalCount
          */
-        void onDeselected(int index, int totalCount);
+        fun onDeselected(index: Int, totalCount: Int)
     }
 }

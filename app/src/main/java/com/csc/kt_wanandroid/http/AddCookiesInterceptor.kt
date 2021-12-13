@@ -1,31 +1,21 @@
-package com.csc.kt_wanandroid.http;
+package com.csc.kt_wanandroid.http
 
-import com.csc.core.manage.AccountManager;
+import com.csc.core.manage.AccountManager
+import okhttp3.Interceptor
+import okhttp3.Response
+import java.io.IOException
+import java.util.*
 
-import java.io.IOException;
-import java.util.HashSet;
-
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
-
-/**
- * des 请求天假cookie
- * @author zs
- * @date 2020-03-09
- */
-public class AddCookiesInterceptor implements Interceptor {
-
-    @Override
-    public Response intercept(Chain chain) throws IOException {
-        Request.Builder builder = chain.request().newBuilder();
-        HashSet<String> cookies = (HashSet<String>) AccountManager.getCookie();
+class AddCookiesInterceptor : Interceptor {
+    @Throws(IOException::class)
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val builder = chain.request().newBuilder()
+        val cookies = AccountManager.getCookie() as HashSet<String>
         if (cookies != null) {
-            for (String cookie : cookies) {
-                builder.addHeader("Cookie", cookie);
+            for (cookie in cookies) {
+                builder.addHeader("Cookie", cookie)
             }
         }
-        return chain.proceed(builder.build());
+        return chain.proceed(builder.build())
     }
-
 }
