@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@color/white"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/imageIv"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/color_333"
+            android:textSize="@dimen/dimen_font_16"
+            app:layout_constraintLeft_toLeftOf="@id/imageIv"
+            app:layout_constraintTop_toBottomOf="@id/imageIv"
+            tools:text="这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题" />
+
+        <TextView
+            android:id="@+id/descTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_dp_10"
+            android:textColor="@color/color_666"
+            android:textSize="@dimen/dimen_font_14"
+            app:layout_constraintLeft_toLeftOf="@id/titleTv"
+            app:layout_constraintTop_toBottomOf="@id/titleTv"
+            tools:text="这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述这是描述" />
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_dp_10"
+            android:textColor="@color/color_999"
+            android:textSize="@dimen/dimen_font_12"
+            app:layout_constraintLeft_toLeftOf="@id/titleTv"
+            app:layout_constraintTop_toBottomOf="@id/descTv"
+            tools:text="cuckoo" />
+
+        <TextView
+            android:id="@+id/timeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_999"
+            android:textSize="@dimen/dimen_font_12"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/nameTv"
+            tools:text="2021.12.13" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_dp_10"
+        android:background="@color/white"
+        android:padding="@dimen/dimen_dp_10">
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textSize="@dimen/dimen_font_16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="这是总分类" />
+
+        <TextView
+            android:id="@+id/countTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/nameTv"
+            tools:text="分类：4" />
+
+        <com.donkingliang.labels.LabelsView
+            android:id="@+id/labelsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:labelBackground="@drawable/label_bg"
+            app:labelTextColor="@color/color_999"
+            app:labelTextPaddingBottom="4dp"
+            app:labelTextPaddingLeft="10dp"
+            app:labelTextPaddingRight="10dp"
+            app:labelTextPaddingTop="4dp"
+            app:labelTextSize="@dimen/dimen_font_14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTv"
+            app:lineMargin="16dp"
+            app:selectType="NONE"
+            app:wordMargin="10dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

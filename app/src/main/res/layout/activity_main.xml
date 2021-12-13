@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/m_ll_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <FrameLayout
+        android:id="@+id/m_fl_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fl_bottom"
+        android:background="@color/white" />
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fl_bottom" />
+
+    <FrameLayout
+        android:id="@+id/fl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <com.csc.kt_wanandroid.widget.MyCommonTabLayout
+            android:id="@+id/mBottomNavigationBar"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/white"
+            android:clipChildren="false"
+            tl:tl_iconMargin="@dimen/dimen_dp_0"
+            tl:tl_indicator_height="0dp"
+            tl:tl_textSelectColor="@color/red"
+            tl:tl_textUnselectColor="@color/color_999"
+            tl:tl_textsize="11sp"
+            tl:tl_underline_color="@color/black"
+            tl:tl_underline_gravity="TOP"
+            tl:tl_underline_height="0dp" />
+
+    </FrameLayout>
+
+</RelativeLayout>

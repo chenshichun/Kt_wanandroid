@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_toast"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/toast_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31px"
+        android:layout_marginLeft="86px"
+        android:layout_marginRight="86px"
+        android:layout_marginTop="31px"
+        tools:text="toast"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

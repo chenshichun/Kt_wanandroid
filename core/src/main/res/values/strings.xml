@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="network_connection_failed" translatable="false">服务器连接失败</string>
+    <string name="no_more_data" translatable="false">没有更多数据</string>
+    <string name="network_busy" translatable="false">网络繁忙</string>
+    <string name="reacquire" translatable="false">重新获取</string>
+    <string name="upload_fail" translatable="false">上传文件出错，请检查您的网络以及文件大小</string>
+</resources>
