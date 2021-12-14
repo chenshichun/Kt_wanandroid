@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <include layout="@layout/layout_title" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/versionStv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_dp_50"
+        android:layout_marginTop="@dimen/dimen_dp_15"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        app:sDividerLineType="none"
+        app:sLeftTextColor="@color/color_333"
+        app:sLeftTextSize="@dimen/dimen_font_16"
+        app:sLeftTextString="版本号"
+        app:sUseRipple="false" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/loginOutStv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_dp_50"
+        android:layout_marginTop="@dimen/dimen_dp_15"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        app:sDividerLineType="none"
+        app:sLeftTextColor="@color/color_333"
+        app:sLeftTextSize="@dimen/dimen_font_16"
+        app:sLeftTextString="退出登录"
+        app:sUseRipple="false" />
+</LinearLayout>

@@ -22,6 +22,8 @@
         <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.system.systemlist.SystemListActivity" />
+        <activity android:name=".ui.collect.CollectActivity"/>
+        <activity android:name=".ui.setting.SeetingActivity"/>
     </application>
 
 </manifest>

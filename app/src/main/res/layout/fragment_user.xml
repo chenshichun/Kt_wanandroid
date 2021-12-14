@@ -1,12 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="@color/bg_color">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="用户" />
-</LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:paddingHorizontal="@dimen/dimen_dp_15"
+                android:paddingVertical="50dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/headIv"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/default_head_pic_icon"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/nameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_dp_10"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_font_14"
+                    app:layout_constraintLeft_toRightOf="@id/headIv"
+                    app:layout_constraintTop_toTopOf="@id/headIv"
+                    android:text="未登录" />
+
+                <TextView
+                    android:id="@+id/integralTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_dp_10"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimen_font_12"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/nameTv"
+                    app:layout_constraintTop_toBottomOf="@id/nameTv"
+                    tools:text="积分：0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/collectStv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_dp_50"
+                android:layout_marginTop="@dimen/dimen_dp_15"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                app:sDividerLineType="none"
+                app:sLeftTextColor="@color/color_333"
+                app:sLeftTextSize="@dimen/dimen_font_16"
+                app:sLeftTextString="我的收藏"
+                app:sUseRipple="false" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/settingStv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_dp_50"
+                android:layout_marginTop="@dimen/dimen_dp_15"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                app:sDividerLineType="none"
+                app:sLeftTextColor="@color/color_333"
+                app:sLeftTextSize="@dimen/dimen_font_16"
+                app:sLeftTextString="设置"
+                app:sUseRipple="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

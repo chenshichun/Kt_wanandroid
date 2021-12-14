@@ -96,4 +96,9 @@ dependencies {
 
     // 多table+fragment
     implementation'com.github.hackware1993:MagicIndicator:1.5.0'
+
+    // 圆形头像
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    implementation 'com.github.lygttpod:SuperTextView:2.3.0'
 }

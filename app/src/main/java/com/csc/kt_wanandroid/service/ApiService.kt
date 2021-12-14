@@ -92,4 +92,23 @@ interface ApiService {
         @Path("pageNum") pageNum: Int,
         @Query("cid") cid: String
     ): Call<BaseNetModel<ArticleListBean>>
+
+    /*
+    * 个人信息
+    * */
+    @GET("/user/lg/userinfo/json")
+    fun getInformation(): Call<BaseNetModel<UserInfoBean>>
+
+    /*
+    * 收藏文章列表
+    * */
+    @GET("/lg/collect/list/{pageNum}/json")
+    fun getCollectData(@Path("pageNum") pageNum: Int): Call<BaseNetModel<ArticleListBean>>
+
+    /*
+    * 退出登录
+    * */
+    @GET("/user/logout/json")
+    fun loginOut(): Call<BaseNetModel<Any>>
+
 }

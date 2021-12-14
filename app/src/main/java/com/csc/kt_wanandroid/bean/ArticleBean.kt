@@ -25,6 +25,7 @@ data class ArticleBean(
     val niceDate: String,
     val niceShareDate: String,
     val origin: String,
+    val originId: String,
     val prefix: String,
     val projectLink: String,
     val publishTime: String,
