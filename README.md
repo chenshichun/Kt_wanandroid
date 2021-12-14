@@ -1,5 +1,7 @@
 # Kt_wanandroid
 
+非常感谢张鸿洋老师提供的开放api！
+
 **一款用kotlin语言基于WanAndroid开放API写的MVP架构的客户端**
 
 [简书地址](https://www.jianshu.com/p/5af779835385)
