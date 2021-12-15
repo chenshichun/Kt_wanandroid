@@ -9,7 +9,6 @@ import com.csc.kt_wanandroid.R
 import com.csc.kt_wanandroid.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_setting.*
 import kotlinx.android.synthetic.main.layout_title.*
-import java.util.*
 
 /**
  * @author chenshichun
@@ -28,8 +27,10 @@ class SeetingActivity : BaseMvpActivity<SettingPresent>(), SettingContract.View,
         mPresenter!!.attachView(this)
         mTvTitle.text = "设置"
 
+        versionStv.setRightString(getVersion())
         loginOutStv.setOnClickListener(this)
         mTvLeft.setOnClickListener(this)
+
     }
 
     override fun loginOut() {
@@ -67,6 +68,23 @@ class SeetingActivity : BaseMvpActivity<SettingPresent>(), SettingContract.View,
                 builder.create().show()
             }
             R.id.mTvLeft -> finish()
+        }
+    }
+
+
+    /**
+     * 获取版本号
+     *
+     * @return 当前应用的版本号
+     */
+    fun getVersion(): String? {
+        return try {
+            val manager = this.packageManager
+            val info = manager.getPackageInfo(this.packageName, 0)
+            info.versionName
+        } catch (e: Exception) {
+            e.printStackTrace()
+            "无法获取到版本号"
         }
     }
 }
