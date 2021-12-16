@@ -37,7 +37,7 @@ class SystemFragment : BaseMvpFragment<SystemPresent>(), SystemContract.View {
                 var bundle = Bundle()
                 bundle.putString("title", systemBean!![position].children[position1].name)
                 bundle.putString("id", systemBean!![position].children[position1].id)
-                IntentUtil.get().goActivity(context, SystemListActivity::class.java, bundle)
+                IntentUtil.get()?.goActivity(context, SystemListActivity::class.java, bundle)
             }
         })
     }

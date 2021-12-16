@@ -51,8 +51,7 @@ class CollectActivity : BaseMvpActivity<CollectPresent>(), CollectContract.View,
                 val bundle = Bundle()
                 bundle.putString("web_url", articleList[position].link)
                 bundle.putString("web_title", articleList[position].title)
-                IntentUtil.get()
-                    .goActivity(this@CollectActivity, WebViewActivity::class.java, bundle)
+                IntentUtil.get()?.goActivity(this@CollectActivity, WebViewActivity::class.java, bundle)
             }
 
             override fun onCollectClick(position: Int) {

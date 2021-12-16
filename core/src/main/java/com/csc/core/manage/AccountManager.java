@@ -9,7 +9,6 @@ import com.csc.core.base.BaseConstant;
 import com.csc.core.data.UserBean;
 import com.csc.core.util.PreferenceUtil;
 import com.csc.core.util.ToastUtil;
-import com.orhanobut.logger.Logger;
 
 import java.util.Set;
 
@@ -19,14 +18,8 @@ import java.util.Set;
  * 描述：
  */
 public class AccountManager {
-    /**
-     * 全局上下文
-     */
-    private Context applicationContext;
 
-    /**
-     * 用户账号
-     */
+    private Context applicationContext;
     private static UserBean mAccount = null;
 
     private static AccountManager sAccountManager;
@@ -38,9 +31,6 @@ public class AccountManager {
         if (mAccount == null) {
             mAccount = PreferenceUtil.getObject(application, BaseConstant.TAG_USER_BEAN, UserBean.class);
         }
-        /*if (mAccount == null) {
-            mAccount = new UserBean();
-        }*/
         mAuthorizationToken = PreferenceUtil.get(application, BaseConstant.TAG_TOKEN);
     }
 

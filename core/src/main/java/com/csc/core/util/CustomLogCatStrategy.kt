@@ -1,11 +1,7 @@
-package com.csc.core.util;
+package com.csc.core.util
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.orhanobut.logger.LogStrategy;
+import android.util.Log
+import com.orhanobut.logger.LogStrategy
 
 /**
  * 适用于com.orhanobut:logger:2.2.0或更新版本
@@ -13,21 +9,18 @@ import com.orhanobut.logger.LogStrategy;
  * @Author: YinYongbo
  * @Time: 2018/7/25 11:27
  */
-public class CustomLogCatStrategy implements LogStrategy {
-
-    @Override
-    public void log(int priority, @Nullable String tag, @NonNull String message) {
-        Log.println(priority, randomKey() + tag, message);
+class CustomLogCatStrategy : LogStrategy {
+    override fun log(priority: Int, tag: String?, message: String) {
+        Log.println(priority, randomKey() + tag, message)
     }
 
-    private int last;
-
-    private String randomKey() {
-        int random = (int) (10 * Math.random());
+    private var last = 0
+    private fun randomKey(): String {
+        var random = (10 * Math.random()).toInt()
         if (random == last) {
-            random = (random + 1) % 10;
+            random = (random + 1) % 10
         }
-        last = random;
-        return String.valueOf(random);
+        last = random
+        return random.toString()
     }
 }

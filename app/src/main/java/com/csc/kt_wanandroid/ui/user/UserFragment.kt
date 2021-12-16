@@ -61,9 +61,9 @@ class UserFragment : BaseMvpFragment<UserPresent>(), UserContract.View, View.OnC
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.nameTv -> IntentUtil.get().goActivity(context, LoginActivity::class.java)
-            R.id.collectStv -> IntentUtil.get().goActivity(context, CollectActivity::class.java)
-            R.id.settingStv -> IntentUtil.get().goActivity(context, SeetingActivity::class.java)
+            R.id.nameTv -> IntentUtil.get()?.goActivity(context, LoginActivity::class.java)
+            R.id.collectStv -> IntentUtil.get()?.goActivity(context, CollectActivity::class.java)
+            R.id.settingStv -> IntentUtil.get()?.goActivity(context, SeetingActivity::class.java)
         }
     }
 }

@@ -3,14 +3,8 @@ package com.csc.kt_wanandroid.http;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-
 import com.csc.core.data.ApiException;
 import com.csc.core.data.HttpStatus;
-import com.csc.core.manage.AccountManager;
-import com.csc.core.manage.AppManager;
-import com.csc.core.util.IntentUtil;
-import com.csc.kt_wanandroid.ui.login.LoginActivity;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
@@ -37,7 +31,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 final class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     private final Gson gson;
     private final TypeAdapter<T> adapter;
-    AlertDialog.Builder builder;
 
     CustomGsonResponseBodyConverter(Gson gson, TypeAdapter<T> adapter) {
         this.gson = gson;
@@ -50,9 +43,6 @@ final class CustomGsonResponseBodyConverter<T> implements Converter<ResponseBody
         String response = value.string();
         HttpStatus httpStatus = gson.fromJson(response, HttpStatus.class);
         if (httpStatus.isCodeInvalid()) {
-   /*         if (httpStatus.isNeedLogin()) {
-                IntentUtil.get().goActivity(AppManager.getInstance().getTopActivity(), LoginActivity.class);
-            }*/
             value.close();
             throw new ApiException(httpStatus.getCode(), httpStatus.getMessage());
         }

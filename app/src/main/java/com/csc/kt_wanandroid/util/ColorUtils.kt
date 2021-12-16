@@ -52,7 +52,7 @@ object ColorUtils {
      * @return
      */
     fun parseColor(color: Int): Int {
-        return ContextCompat.getColor(BaseApplication.mContext, color)
+        return ContextCompat.getColor(BaseApplication.mContext!!, color)
     }
 
     /**

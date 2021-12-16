@@ -30,7 +30,7 @@ abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
 
         setContentView(getLayoutId())
         initView()
-        AppManager.getInstance()!!.addActivity(this) //添加到栈中
+        AppManager.instance!!.addActivity(this) //添加到栈中
 
         // 沉浸式状态栏
         ImmersionBar.with(this).init()
@@ -38,7 +38,7 @@ abstract class BaseActivity : AppCompatActivity(), BGASwipeBackHelper.Delegate {
     }
 
     override fun onDestroy() {
-        AppManager.getInstance()!!.finishActivity(this) //从栈中移除
+        AppManager.instance!!.finishActivity(this) //从栈中移除
         super.onDestroy()
     }
 

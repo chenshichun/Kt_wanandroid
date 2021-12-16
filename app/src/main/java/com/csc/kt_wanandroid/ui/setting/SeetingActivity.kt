@@ -34,8 +34,8 @@ class SeetingActivity : BaseMvpActivity<SettingPresent>(), SettingContract.View,
     }
 
     override fun loginOut() {
-        AppManager.getInstance().finishAllActivity()
-        IntentUtil.get().goActivity(this, LoginActivity::class.java)
+        AppManager.instance!!.finishAllActivity()
+        IntentUtil.get()?.goActivity(this, LoginActivity::class.java)
     }
 
     override fun showLoading() {
@@ -58,13 +58,13 @@ class SeetingActivity : BaseMvpActivity<SettingPresent>(), SettingContract.View,
                 builder.setTitle("提示")
                 builder.setPositiveButton(
                     "确定"
-                ) { dialog, which ->
+                ) { dialog, _ ->
                     mPresenter!!.loginOut()
                     dialog.dismiss()
                 }
                 builder.setNegativeButton(
                     "取消"
-                ) { dialog, which -> dialog.dismiss() }
+                ) { dialog, _ -> dialog.dismiss() }
                 builder.create().show()
             }
             R.id.mTvLeft -> finish()
@@ -77,7 +77,7 @@ class SeetingActivity : BaseMvpActivity<SettingPresent>(), SettingContract.View,
      *
      * @return 当前应用的版本号
      */
-    fun getVersion(): String? {
+    private fun getVersion(): String? {
         return try {
             val manager = this.packageManager
             val info = manager.getPackageInfo(this.packageName, 0)

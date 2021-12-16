@@ -107,7 +107,7 @@ class MainActivity : BaseActivity() {
             // 利用handler延迟发送更改状态信息
             mHandler.sendEmptyMessageDelayed(0, 2000)
         } else {
-            AppManager.getInstance().appExit()
+            AppManager.instance!!.appExit()
         }
     }
 }

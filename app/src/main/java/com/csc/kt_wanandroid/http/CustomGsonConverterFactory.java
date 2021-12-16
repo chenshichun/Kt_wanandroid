@@ -18,7 +18,6 @@ import retrofit2.Retrofit;
  * @Time : 2020/11/2 19:20
  * @Description : 文件描述
  */
-//CustomGsonConverterFactory.java
 public class CustomGsonConverterFactory extends Converter.Factory {
 
     private final Gson gson;

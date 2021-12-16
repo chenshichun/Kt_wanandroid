@@ -41,6 +41,9 @@ dependencies {
     implementation 'com.android.support:design:25.2.0'
     implementation 'com.android.support:appcompat-v7:25.2.0'
 
+    // 存储
+    implementation 'androidx.preference:preference:1.1.1'
+
     implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
     implementation 'com.orhanobut:logger:2.2.0'
 

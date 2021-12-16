@@ -1,6 +1,9 @@
 package com.csc.kt_wanandroid.http;
 
 import com.csc.core.data.NoBodyModel;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -30,7 +33,7 @@ public class NobodyConverterFactory extends Converter.Factory {
             //是则创建一个Converter返回转换数据
             return new Converter<ResponseBody, NoBodyModel>() {
                 @Override
-                public NoBodyModel convert(ResponseBody value) throws IOException {
+                public NoBodyModel convert(@NotNull ResponseBody value) throws IOException {
                     //这里直接返回null是因为我们不需要使用到响应体,本来也没有响应体.
                     //返回的对象会存到response.body()里.
                     return null;

@@ -11,14 +11,16 @@ class AddCookiesInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder()
         var cookies = HashSet<String>()
-        if (AccountManager.getCookie() != null) {
-            cookies = AccountManager.getCookie() as HashSet<String>
+
+        AccountManager.getCookie()?.let {
+            cookies = it as HashSet<String>
         }
-        if (cookies != null) {
+        cookies.let {
             for (cookie in cookies) {
                 builder.addHeader("Cookie", cookie)
             }
         }
+
         return chain.proceed(builder.build())
     }
 }

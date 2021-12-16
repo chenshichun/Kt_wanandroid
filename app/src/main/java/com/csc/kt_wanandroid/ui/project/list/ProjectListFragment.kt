@@ -43,7 +43,7 @@ class ProjectListFragment(private var cid: String) : BaseMvpFragment<ProjectList
                 val bundle = Bundle()
                 bundle.putString("web_url", articleBeans[position].link)
                 bundle.putString("web_title", articleBeans[position].title)
-                IntentUtil.get().goActivity(context, WebViewActivity::class.java,bundle)
+                IntentUtil.get()?.goActivity(context, WebViewActivity::class.java,bundle)
             }
         })
         refreshView()

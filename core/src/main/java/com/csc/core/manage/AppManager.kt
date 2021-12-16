@@ -1,55 +1,32 @@
-package com.csc.core.manage;
+package com.csc.core.manage
 
-import android.app.Activity;
+import android.app.Activity
+import android.os.Process
+import java.util.*
 
-import java.util.Iterator;
-import java.util.Stack;
-
-public class AppManager {
-
-    public static Stack<Activity> getActivityStack() {
-        return activityStack;
-    }
-
-    private static Stack<Activity> activityStack;
-    private static AppManager instance;
-
-    private AppManager() {
-    }
-
-    /**
-     * 单一实例
-     */
-    public static AppManager getInstance() {
-        if (instance == null) {
-            instance = new AppManager();
-        }
-        return instance;
-    }
-
+class AppManager private constructor() {
     /**
      * 添加Activity到堆栈
      */
-    public void addActivity(Activity activity) {
+    fun addActivity(activity: Activity?) {
         if (activityStack == null) {
-            activityStack = new Stack<>();
+            activityStack = Stack()
         }
-        activityStack.add(activity);
+        activityStack!!.add(activity)
     }
 
     /**
      * 获取栈顶Activity（堆栈中最后一个压入的）
      */
-    public Activity getTopActivity() {
-        return activityStack.lastElement();
-    }
+    val topActivity: Activity?
+        get() = activityStack!!.lastElement()
 
     /**
      * 结束栈顶Activity（堆栈中最后一个压入的）
      */
-    public void finishTopActivity() {
-        Activity activity = activityStack.lastElement();
-        finishActivity(activity);
+    fun finishTopActivity() {
+        val activity = activityStack!!.lastElement()
+        finishActivity(activity)
     }
 
     /**
@@ -57,13 +34,13 @@ public class AppManager {
      *
      * @param cls
      */
-    public void finishActivity(Class<?> cls) {
-        Iterator iterator = activityStack.iterator();
+    fun finishActivity(cls: Class<*>) {
+        val iterator: MutableIterator<*> = activityStack!!.iterator()
         while (iterator.hasNext()) {
-            Activity activity = (Activity) iterator.next();
-            if (activity.getClass().equals(cls)) {
-                iterator.remove();
-                activity.finish();
+            val activity = iterator.next() as Activity
+            if (activity.javaClass == cls) {
+                iterator.remove()
+                activity.finish()
             }
         }
     }
@@ -71,50 +48,68 @@ public class AppManager {
     /**
      * 结束所有Activity
      */
-    @SuppressWarnings("WeakerAccess")
-    public void finishAllActivity() {
-        for (int i = 0, size = activityStack.size(); i < size; i++) {
-            if (null != activityStack.get(i)) {
-                activityStack.get(i).finish();
+    fun finishAllActivity() {
+        var i = 0
+        val size = activityStack!!.size
+        while (i < size) {
+            if (null != activityStack!![i]) {
+                activityStack!![i]!!.finish()
             }
+            i++
         }
-        activityStack.clear();
+        activityStack!!.clear()
     }
 
     /**
      * 退出应用程序
      */
-    public void appExit() {
+    fun appExit() {
         try {
-            finishAllActivity();
-            System.exit(0);
-            android.os.Process.killProcess(android.os.Process.myPid());
-
-        } catch (Exception e) {
+            finishAllActivity()
+            System.exit(0)
+            Process.killProcess(Process.myPid())
+        } catch (e: Exception) {
         }
     }
 
     /**
      * 结束指定的Activity
      */
-    public void finishActivity(Activity activity) {
+    fun finishActivity(activity: Activity?) {
+        var activity = activity
         if (activity != null) {
-            activityStack.remove(activity);
-            activity.finish();
-            activity = null;
+            activityStack!!.remove(activity)
+            activity.finish()
+            activity = null
         }
     }
 
     /**
      * 得到指定类名的Activity
      */
-    public Activity getActivity(Class<?> cls) {
-        for (Activity activity : activityStack) {
-            if (activity.getClass().equals(cls)) {
-                return activity;
+    fun getActivity(cls: Class<*>): Activity? {
+        for (activity in activityStack!!) {
+            if (activity!!.javaClass == cls) {
+                return activity
             }
         }
-        return null;
+        return null
     }
 
+    companion object {
+        var activityStack: Stack<Activity?>? = null
+            private set
+
+        /**
+         * 单一实例
+         */
+        var instance: AppManager? = null
+            get() {
+                if (field == null) {
+                    field = AppManager()
+                }
+                return field
+            }
+            private set
+    }
 }

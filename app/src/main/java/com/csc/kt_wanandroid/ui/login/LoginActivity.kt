@@ -36,8 +36,8 @@ class LoginActivity : BaseMvpActivity<LoginPresent>(), LoginContract.View, View.
         AccountManager.signInToken(mData!!.token)
         AccountManager.signIn(mData)
 
-        AppManager.getInstance()?.finishAllActivity()
-        IntentUtil.get().goActivity(this, MainActivity::class.java)
+        AppManager.instance?.finishAllActivity()
+        IntentUtil.get()?.goActivity(this, MainActivity::class.java)
     }
 
     override fun showLoading() {
@@ -65,7 +65,7 @@ class LoginActivity : BaseMvpActivity<LoginPresent>(), LoginContract.View, View.
                 }
             }
             R.id.tvRegister -> {
-                IntentUtil.get().goActivity(this, RegisterActivity::class.java)
+                IntentUtil.get()?.goActivity(this, RegisterActivity::class.java)
             }
         }
     }

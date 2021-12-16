@@ -46,7 +46,7 @@ class HomeFragment : BaseMvpFragment<HomePresent>(), HomeContract.View, View.OnC
                 val bundle = Bundle()
                 bundle.putString("web_url", articleList[position].link)
                 bundle.putString("web_title", articleList[position].title)
-                IntentUtil.get().goActivity(context, WebViewActivity::class.java,bundle)
+                IntentUtil.get()?.goActivity(context, WebViewActivity::class.java,bundle)
             }
 
             override fun onCollectClick(position: Int) {
@@ -93,7 +93,7 @@ class HomeFragment : BaseMvpFragment<HomePresent>(), HomeContract.View, View.OnC
             val bundle = Bundle()
             bundle.putString("web_url", mData[position].url)
             bundle.putString("web_title", mData[position].title)
-            IntentUtil.get().goActivity(context, WebViewActivity::class.java,bundle)
+            IntentUtil.get()?.goActivity(context, WebViewActivity::class.java,bundle)
         }
         mBanner.start()
     }
